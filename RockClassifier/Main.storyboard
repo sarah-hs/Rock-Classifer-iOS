@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rgK-xy-gws">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="uFx-lf-SxS">
+            <objects>
+                <viewController id="rgK-xy-gws" customClass="ViewController" customModule="RockClassifier" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mf3-de-y3E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Granite.png" translatesAutoresizingMaskIntoConstraints="NO" id="GO1-CU-e0r" userLabel="Image View Rock">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GO1-CU-e0r" secondAttribute="height" multiplier="1:1" id="Kpl-QF-pmW"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfJ-OR-fMY" userLabel="View Photo Buttons">
+                                <rect key="frame" x="0.0" y="414" width="414" height="51"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ll1-aO-h99">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="camera.fill" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23" scale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTapOpenCamera:" destination="rgK-xy-gws" eventType="touchUpInside" id="c45-gL-7Ir"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Doe-yE-qp6">
+                                        <rect key="frame" x="207" y="0.0" width="207" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="photo.on.rectangle.fill" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23" scale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTapPhotoLibrary:" destination="rgK-xy-gws" eventType="touchUpInside" id="2wf-U6-E6L"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZ8-5h-dnd" userLabel="View Image Features">
+                                <rect key="frame" x="0.0" y="465" width="414" height="40"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OIt-rQ-Hz3" userLabel="Segmented Control Image Features">
+                                        <rect key="frame" x="141" y="5" width="131" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VgU-74-IUi"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfA-WI-wEd" userLabel="View Classify">
+                                <rect key="frame" x="0.0" y="505" width="207" height="231"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYI-9H-2I6" userLabel="Button Classify" customClass="RoundButton" customModule="RockClassifier" customModuleProvider="target">
+                                        <rect key="frame" x="33.666666666666657" y="90" width="140" height="51"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="15" maxX="40" maxY="15"/>
+                                        <state key="normal" title="Classify">
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="classify:" destination="rgK-xy-gws" eventType="touchUpInside" id="oAu-PZ-8wT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="qYI-9H-2I6" firstAttribute="centerX" secondItem="xfA-WI-wEd" secondAttribute="centerX" id="6Dz-yO-NXl"/>
+                                    <constraint firstItem="qYI-9H-2I6" firstAttribute="centerY" secondItem="xfA-WI-wEd" secondAttribute="centerY" id="BAd-fJ-H0N"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Kl-T7-PEp" userLabel="View Results">
+                                <rect key="frame" x="207" y="505" width="207" height="231"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Granodiorite 99.99%" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QWz-Ge-8tw" userLabel="Label Results">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="232"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="68d-ui-sm0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GO1-CU-e0r" firstAttribute="trailing" secondItem="68d-ui-sm0" secondAttribute="trailing" id="3Aw-1w-y5x"/>
+                            <constraint firstItem="8Kl-T7-PEp" firstAttribute="top" secondItem="TZ8-5h-dnd" secondAttribute="bottom" id="415-h5-wvU"/>
+                            <constraint firstItem="QfJ-OR-fMY" firstAttribute="top" secondItem="GO1-CU-e0r" secondAttribute="bottom" id="6O8-Hy-VeN"/>
+                            <constraint firstItem="QfJ-OR-fMY" firstAttribute="leading" secondItem="68d-ui-sm0" secondAttribute="leading" id="8aU-Wo-nb6"/>
+                            <constraint firstItem="TZ8-5h-dnd" firstAttribute="top" secondItem="QfJ-OR-fMY" secondAttribute="bottom" id="EvM-KC-lOm"/>
+                            <constraint firstItem="GO1-CU-e0r" firstAttribute="top" secondItem="68d-ui-sm0" secondAttribute="top" id="Ha6-uo-6xM"/>
+                            <constraint firstItem="8Kl-T7-PEp" firstAttribute="leading" secondItem="xfA-WI-wEd" secondAttribute="trailing" id="OXz-R4-ERX"/>
+                            <constraint firstItem="xfA-WI-wEd" firstAttribute="leading" secondItem="68d-ui-sm0" secondAttribute="leading" id="QUo-q9-4Mq"/>
+                            <constraint firstItem="QfJ-OR-fMY" firstAttribute="top" secondItem="GO1-CU-e0r" secondAttribute="bottom" id="SQ6-rm-ICg"/>
+                            <constraint firstItem="8Kl-T7-PEp" firstAttribute="trailing" secondItem="68d-ui-sm0" secondAttribute="trailing" id="YqX-G6-ShP"/>
+                            <constraint firstItem="xfA-WI-wEd" firstAttribute="bottom" secondItem="68d-ui-sm0" secondAttribute="bottom" id="a8O-Qs-qqm"/>
+                            <constraint firstItem="QfJ-OR-fMY" firstAttribute="trailing" secondItem="68d-ui-sm0" secondAttribute="trailing" id="eP9-o9-WXf"/>
+                            <constraint firstItem="qYI-9H-2I6" firstAttribute="height" secondItem="QfJ-OR-fMY" secondAttribute="height" id="kcY-Xo-VZ8"/>
+                            <constraint firstItem="xfA-WI-wEd" firstAttribute="top" secondItem="TZ8-5h-dnd" secondAttribute="bottom" id="lPM-hL-iTo"/>
+                            <constraint firstItem="TZ8-5h-dnd" firstAttribute="trailing" secondItem="68d-ui-sm0" secondAttribute="trailing" id="oXK-Wl-iSN"/>
+                            <constraint firstItem="GO1-CU-e0r" firstAttribute="leading" secondItem="68d-ui-sm0" secondAttribute="leading" id="qe1-zM-ndZ"/>
+                            <constraint firstItem="TZ8-5h-dnd" firstAttribute="leading" secondItem="68d-ui-sm0" secondAttribute="leading" id="qgr-jV-udR"/>
+                            <constraint firstItem="8Kl-T7-PEp" firstAttribute="width" secondItem="xfA-WI-wEd" secondAttribute="width" id="rmi-r4-cvU"/>
+                            <constraint firstItem="8Kl-T7-PEp" firstAttribute="bottom" secondItem="68d-ui-sm0" secondAttribute="bottom" id="v1R-eK-ZGA"/>
+                            <constraint firstItem="TZ8-5h-dnd" firstAttribute="top" secondItem="QfJ-OR-fMY" secondAttribute="bottom" id="vT2-ee-MJZ"/>
+                            <constraint firstItem="xfA-WI-wEd" firstAttribute="top" secondItem="TZ8-5h-dnd" secondAttribute="bottom" id="yYQ-LF-foz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button_camera" destination="ll1-aO-h99" id="Uek-R5-S2o"/>
+                        <outlet property="button_classify" destination="qYI-9H-2I6" id="v9C-EO-KQm"/>
+                        <outlet property="imageView_rock" destination="GO1-CU-e0r" id="uuC-TW-ey8"/>
+                        <outlet property="label_results" destination="QWz-Ge-8tw" id="swj-ra-g6c"/>
+                        <outlet property="segmentedControl_features" destination="OIt-rQ-Hz3" id="D8R-qv-Efq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t3r-81-iWP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-332" y="94"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="qYI-9H-2I6">
+            <size key="intrinsicContentSize" width="140" height="51"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Granite.png" width="886" height="964"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
+        <image name="photo.on.rectangle.fill" catalog="system" width="128" height="96"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
