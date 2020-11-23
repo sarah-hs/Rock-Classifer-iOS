@@ -7,4 +7,5 @@ target 'ImageClassification' do
 
   # Pods for ImageClassification
    pod 'TensorFlowLiteSwift'
+   pod 'ColorThiefSwift', '>= 0.4.1'
 end
