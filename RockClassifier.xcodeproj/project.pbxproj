@@ -31,7 +31,7 @@
 		AA5FEB7C21355CCC00F9BD4B /* labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = labels.txt; sourceTree = "<group>"; };
 		AAAB096D218981FA0015A1F2 /* CVPixelBufferExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVPixelBufferExtension.swift; sourceTree = "<group>"; };
 		AABFCBB1213FE0B100C0A67B /* ModelDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelDataHandler.swift; sourceTree = "<group>"; };
-		AAE79E56213521DA00E7AC1F /* ImageClassification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageClassification.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAE79E56213521DA00E7AC1F /* RockClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RockClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE79E59213521DA00E7AC1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAE79E5E213521DA00E7AC1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AAE79E60213521DB00E7AC1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 		AAE79E4D213521DA00E7AC1F = {
 			isa = PBXGroup;
 			children = (
-				AAE79E58213521DA00E7AC1F /* ImageClassification */,
+				AAE79E58213521DA00E7AC1F /* RockClassifier */,
 				AAE79E57213521DA00E7AC1F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,12 +114,12 @@
 		AAE79E57213521DA00E7AC1F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AAE79E56213521DA00E7AC1F /* ImageClassification.app */,
+				AAE79E56213521DA00E7AC1F /* RockClassifier.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AAE79E58213521DA00E7AC1F /* ImageClassification */ = {
+		AAE79E58213521DA00E7AC1F /* RockClassifier */ = {
 			isa = PBXGroup;
 			children = (
 				AAAB096C218981A30015A1F2 /* Extensions */,
@@ -134,7 +134,7 @@
 				AAE79E60213521DB00E7AC1F /* Assets.xcassets */,
 				AAE79E65213521DB00E7AC1F /* Info.plist */,
 			);
-			path = ImageClassification;
+			path = RockClassifier;
 			sourceTree = "<group>";
 		};
 		AAE79E932135236700E7AC1F /* ViewControllers */ = {
@@ -158,9 +158,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AAE79E55213521DA00E7AC1F /* ImageClassification */ = {
+		AAE79E55213521DA00E7AC1F /* RockClassifier */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAE79E7E213521DB00E7AC1F /* Build configuration list for PBXNativeTarget "ImageClassification" */;
+			buildConfigurationList = AAE79E7E213521DB00E7AC1F /* Build configuration list for PBXNativeTarget "RockClassifier" */;
 			buildPhases = (
 				AA055D8B2162320A00B25948 /* ShellScript */,
 				AAE79E52213521DA00E7AC1F /* Sources */,
@@ -171,9 +171,9 @@
 			);
 			dependencies = (
 			);
-			name = ImageClassification;
+			name = RockClassifier;
 			productName = ImageClassification;
-			productReference = AAE79E56213521DA00E7AC1F /* ImageClassification.app */;
+			productReference = AAE79E56213521DA00E7AC1F /* RockClassifier.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -183,7 +183,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Y Media Labs";
 				TargetAttributes = {
 					AAE79E55213521DA00E7AC1F = {
@@ -192,7 +192,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AAE79E51213521DA00E7AC1F /* Build configuration list for PBXProject "ImageClassification" */;
+			buildConfigurationList = AAE79E51213521DA00E7AC1F /* Build configuration list for PBXProject "RockClassifier" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -205,7 +205,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AAE79E55213521DA00E7AC1F /* ImageClassification */,
+				AAE79E55213521DA00E7AC1F /* RockClassifier */,
 			);
 		};
 /* End PBXProject section */
@@ -310,6 +310,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -335,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -371,6 +372,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -390,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -454,7 +456,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AAE79E51213521DA00E7AC1F /* Build configuration list for PBXProject "ImageClassification" */ = {
+		AAE79E51213521DA00E7AC1F /* Build configuration list for PBXProject "RockClassifier" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAE79E7C213521DB00E7AC1F /* Debug */,
@@ -463,7 +465,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAE79E7E213521DB00E7AC1F /* Build configuration list for PBXNativeTarget "ImageClassification" */ = {
+		AAE79E7E213521DB00E7AC1F /* Build configuration list for PBXNativeTarget "RockClassifier" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAE79E7F213521DB00E7AC1F /* Debug */,
