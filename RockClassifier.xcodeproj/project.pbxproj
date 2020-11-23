@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,9 +21,13 @@
 		AAE79E952135237A00E7AC1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE79E942135237A00E7AC1F /* ViewController.swift */; };
 		AAE79E9A2135268800E7AC1F /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE79E982135268800E7AC1F /* PreviewView.swift */; };
 		AAE79E9B2135268800E7AC1F /* CameraFeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE79E992135268800E7AC1F /* CameraFeedManager.swift */; };
+		E12CD5D42398457A7A2F61EF /* Pods_RockClassifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F5DD9E81ED7BCF3E823039 /* Pods_RockClassifier.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E7112896BE2777B40CE0420 /* Pods-RockClassifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RockClassifier.release.xcconfig"; path = "Target Support Files/Pods-RockClassifier/Pods-RockClassifier.release.xcconfig"; sourceTree = "<group>"; };
+		7EC38F10894E1C6F76AB4F12 /* Pods-RockClassifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RockClassifier.debug.xcconfig"; path = "Target Support Files/Pods-RockClassifier/Pods-RockClassifier.debug.xcconfig"; sourceTree = "<group>"; };
+		A8F5DD9E81ED7BCF3E823039 /* Pods_RockClassifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RockClassifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA16E5A12180843700D9E153 /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		AA5B0EE9217E5E300026FF23 /* InferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceViewController.swift; sourceTree = "<group>"; };
 		AA5B0EEB217E70000026FF23 /* CurvedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurvedView.swift; sourceTree = "<group>"; };
@@ -47,12 +51,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12CD5D42398457A7A2F61EF /* Pods_RockClassifier.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B8B09AD349BE0D31AF71176 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8F5DD9E81ED7BCF3E823039 /* Pods_RockClassifier.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6C283F16B9A49556D4CA5E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7EC38F10894E1C6F76AB4F12 /* Pods-RockClassifier.debug.xcconfig */,
+				3E7112896BE2777B40CE0420 /* Pods-RockClassifier.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		AA16E5A02180843700D9E153 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +130,8 @@
 			children = (
 				AAE79E58213521DA00E7AC1F /* RockClassifier */,
 				AAE79E57213521DA00E7AC1F /* Products */,
+				A6C283F16B9A49556D4CA5E1 /* Pods */,
+				3B8B09AD349BE0D31AF71176 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,10 +186,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAE79E7E213521DB00E7AC1F /* Build configuration list for PBXNativeTarget "RockClassifier" */;
 			buildPhases = (
+				D7EE11E4B0DB6DEC1713F297 /* [CP] Check Pods Manifest.lock */,
 				AA055D8B2162320A00B25948 /* ShellScript */,
 				AAE79E52213521DA00E7AC1F /* Sources */,
 				AAE79E53213521DA00E7AC1F /* Frameworks */,
 				AAE79E54213521DA00E7AC1F /* Resources */,
+				860AFCE819C883CD11F7D583 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,6 +252,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		860AFCE819C883CD11F7D583 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RockClassifier/Pods-RockClassifier-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RockClassifier/Pods-RockClassifier-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RockClassifier/Pods-RockClassifier-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AA055D8B2162320A00B25948 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,6 +285,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$SRCROOT/RunScripts/download_models.sh\"\n";
+		};
+		D7EE11E4B0DB6DEC1713F297 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RockClassifier-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -404,6 +469,7 @@
 		};
 		AAE79E7F213521DB00E7AC1F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EC38F10894E1C6F76AB4F12 /* Pods-RockClassifier.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -413,13 +479,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = ImageClassification/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RockClassifier/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.tensorflow.ImageClassification;
+				PRODUCT_BUNDLE_IDENTIFIER = RockClassifier1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -430,6 +496,7 @@
 		};
 		AAE79E80213521DB00E7AC1F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E7112896BE2777B40CE0420 /* Pods-RockClassifier.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -439,13 +506,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = ImageClassification/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RockClassifier/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.tensorflow.ImageClassification;
+				PRODUCT_BUNDLE_IDENTIFIER = RockClassifier1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;

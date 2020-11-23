@@ -1,20 +1,24 @@
 PODS:
+  - ColorThiefSwift (0.4.1)
   - TensorFlowLiteC (2.0.0)
   - TensorFlowLiteSwift (2.0.0):
     - TensorFlowLiteC (= 2.0.0)
 
 DEPENDENCIES:
+  - ColorThiefSwift (>= 0.4.1)
   - TensorFlowLiteSwift
 
 SPEC REPOS:
   trunk:
+    - ColorThiefSwift
     - TensorFlowLiteC
     - TensorFlowLiteSwift
 
 SPEC CHECKSUMS:
+  ColorThiefSwift: 34455b0c204ab48d1138d6161a048e5225ec3174
   TensorFlowLiteC: d22a94f77938edb2dfcb9674937f9548a3fcdb23
   TensorFlowLiteSwift: dcd91bd74091f8e3e1b9b28a7d789f635dc26bea
 
-PODFILE CHECKSUM: 89f7867e5c2130babaa8402a0826ea3555a14089
+PODFILE CHECKSUM: b031ccae3f08fbdd7ddc5c66e6fc93b471b696c3
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.0
