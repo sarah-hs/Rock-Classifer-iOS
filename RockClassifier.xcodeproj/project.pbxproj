@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,9 +16,13 @@
 		266340B1256C22AA00AB2E59 /* Granite.png in Resources */ = {isa = PBXBuildFile; fileRef = 266340B0256C22AA00AB2E59 /* Granite.png */; };
 		26B8612A256C12FF003EBC61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26B86129256C12FF003EBC61 /* Main.storyboard */; };
 		26B8612D256C131D003EBC61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B8612C256C131D003EBC61 /* ViewController.swift */; };
+		26EE0A8A256C4FB9003367C8 /* rock_labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26EE0A88256C4FB9003367C8 /* rock_labels.txt */; };
+		26EE0A8B256C4FB9003367C8 /* rock_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 26EE0A89256C4FB9003367C8 /* rock_model.tflite */; };
+		9A9F9FA5B7A04B7AFB616B2B /* Pods_RockClassifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5736B65BC46FE3E07D65F73A /* Pods_RockClassifier.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		241B04282E667131F200DD21 /* Pods-RockClassifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RockClassifier.debug.xcconfig"; path = "Target Support Files/Pods-RockClassifier/Pods-RockClassifier.debug.xcconfig"; sourceTree = "<group>"; };
 		262A9C14256C114200EFB9DF /* RockClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RockClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		262A9C17256C114300EFB9DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		262A9C1B256C114300EFB9DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -28,8 +32,12 @@
 		2663409E256C1D4700AB2E59 /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
 		266340A1256C1D7600AB2E59 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		266340B0256C22AA00AB2E59 /* Granite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Granite.png; sourceTree = "<group>"; };
-		26B86129256C12FF003EBC61 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = RockClassifier/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		26B86129256C12FF003EBC61 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = RockClassifier/Assets/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		26B8612C256C131D003EBC61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		26EE0A88256C4FB9003367C8 /* rock_labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock_labels.txt; sourceTree = "<group>"; };
+		26EE0A89256C4FB9003367C8 /* rock_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = rock_model.tflite; sourceTree = "<group>"; };
+		5736B65BC46FE3E07D65F73A /* Pods_RockClassifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RockClassifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1AFE697CC7C6BBD7A881A7E /* Pods-RockClassifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RockClassifier.release.xcconfig"; path = "Target Support Files/Pods-RockClassifier/Pods-RockClassifier.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A9F9FA5B7A04B7AFB616B2B /* Pods_RockClassifier.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +57,8 @@
 			children = (
 				262A9C16256C114200EFB9DF /* RockClassifier */,
 				262A9C15256C114200EFB9DF /* Products */,
+				4ED182251206B590DC57B6C7 /* Pods */,
+				ACCBE61004FC22BD118C4247 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,8 +73,6 @@
 		262A9C16256C114200EFB9DF /* RockClassifier */ = {
 			isa = PBXGroup;
 			children = (
-				26B86129256C12FF003EBC61 /* Main.storyboard */,
-				265BA2F5256C12A10083EB39 /* LaunchScreen.storyboard */,
 				26B86135256C1518003EBC61 /* Assets */,
 				2663409E256C1D4700AB2E59 /* ImageClassifier.swift */,
 				262A9C17256C114300EFB9DF /* AppDelegate.swift */,
@@ -77,11 +86,32 @@
 		26B86135256C1518003EBC61 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				26EE0A88256C4FB9003367C8 /* rock_labels.txt */,
+				26EE0A89256C4FB9003367C8 /* rock_model.tflite */,
+				26B86129256C12FF003EBC61 /* Main.storyboard */,
+				265BA2F5256C12A10083EB39 /* LaunchScreen.storyboard */,
 				266340B0256C22AA00AB2E59 /* Granite.png */,
 				262A9C1B256C114300EFB9DF /* Assets.xcassets */,
 				262A9C20256C114300EFB9DF /* Info.plist */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		4ED182251206B590DC57B6C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				241B04282E667131F200DD21 /* Pods-RockClassifier.debug.xcconfig */,
+				B1AFE697CC7C6BBD7A881A7E /* Pods-RockClassifier.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		ACCBE61004FC22BD118C4247 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5736B65BC46FE3E07D65F73A /* Pods_RockClassifier.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,9 +121,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 262A9C23256C114300EFB9DF /* Build configuration list for PBXNativeTarget "RockClassifier" */;
 			buildPhases = (
+				D48C8AD88CA6117C9728FB47 /* [CP] Check Pods Manifest.lock */,
 				262A9C10256C114200EFB9DF /* Sources */,
 				262A9C11256C114200EFB9DF /* Frameworks */,
 				262A9C12256C114200EFB9DF /* Resources */,
+				B7EDD9A48EFDD0A4A6D753B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,14 +173,58 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26EE0A8B256C4FB9003367C8 /* rock_model.tflite in Resources */,
 				265BA2F6256C12A10083EB39 /* LaunchScreen.storyboard in Resources */,
 				262A9C1C256C114300EFB9DF /* Assets.xcassets in Resources */,
 				26B8612A256C12FF003EBC61 /* Main.storyboard in Resources */,
+				26EE0A8A256C4FB9003367C8 /* rock_labels.txt in Resources */,
 				266340B1256C22AA00AB2E59 /* Granite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B7EDD9A48EFDD0A4A6D753B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RockClassifier/Pods-RockClassifier-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RockClassifier/Pods-RockClassifier-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RockClassifier/Pods-RockClassifier-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D48C8AD88CA6117C9728FB47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RockClassifier-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		262A9C10256C114200EFB9DF /* Sources */ = {
@@ -284,12 +360,13 @@
 		};
 		262A9C24256C114300EFB9DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 241B04282E667131F200DD21 /* Pods-RockClassifier.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8PRU62NKG9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = NO;
 				INFOPLIST_FILE = RockClassifier/Assets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -306,12 +383,13 @@
 		};
 		262A9C25256C114300EFB9DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1AFE697CC7C6BBD7A881A7E /* Pods-RockClassifier.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8PRU62NKG9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = NO;
 				INFOPLIST_FILE = RockClassifier/Assets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

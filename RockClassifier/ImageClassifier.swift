@@ -8,8 +8,7 @@
 import Foundation
 import CoreImage
 import UIKit
-//import TensorFlowLite
-//import Accelerate
+import TensorFlowLite
 
 
 // MARK: - Structures and Enums
@@ -18,27 +17,23 @@ import UIKit
 typealias FileInfo = (name: String, extension: String)
 
 // Information about the MobileNet model.
-enum MobileNet {
-  static let modelInfo: FileInfo = (name: "mobilenet_quant_v1_224", extension: "tflite")
-  static let labelsInfo: FileInfo = (name: "labels", extension: "txt")
+enum Model {
+//    static let modelInfo: FileInfo = (name: "mobilenet_quant_v1_224", extension: "tflite")
+//    static let labelsInfo: FileInfo = (name: "labels", extension: "txt")
+    static let modelInfo: FileInfo = (name: "rock_model", extension: "tflite")
+    static let labelsInfo: FileInfo = (name: "rock_labels", extension: "txt")
 }
 
 // Convenient enum to return result with a callback
 enum Result<T> {
-  case success(T)
-  case error(Error)
-}
-
-private enum Constant {
-  /// Specify the TF Lite model file
-  static let modelFilename = "mnist"
-  static let modelFileExtension = "tflite"
+    case success(T)
+    case error(Error)
 }
 
 // An inference from invoking the `Interpreter`.
 struct Inference {
-  let confidence: Float
-  let label: String
+    let confidence: Float
+    let label: String
 }
 
 
@@ -49,14 +44,33 @@ class ImageClassifier {
 
     // MARK: Instance Variables
     private var interpreter: Interpreter /// TensorFlow Lite `Interpreter` object for performing inference on a given model.
-    private var inputImageWidth: Int
-    private var inputImageHeight: Int
-
+    private var inputShape: TensorShape
+    private var outputShape: TensorShape
+    private var resultsToDisplay = -1 // Default -1: Classifier will display the results of all classes from the selected model
+    private var labels: [String] = []
+    
+    /// Loads the labels from the labels file and stores them in the `labels` property.
+    private func loadLabels(fileInfo: FileInfo) {
+        let filename = fileInfo.name
+        let fileExtension = fileInfo.extension
+        guard let fileURL = Bundle.main.url(forResource: filename, withExtension: fileExtension)
+        else {
+            fatalError("Labels file not found in bundle. Please add a labels file with name \(filename).\(fileExtension) and try again.")
+        }
+        do {
+            let contents = try String(contentsOf: fileURL, encoding: .utf8)
+            labels = contents.components(separatedBy: .newlines)
+        } catch {
+            fatalError("Labels file named \(filename).\(fileExtension) cannot be read. Please add a valid labels file and try again.")
+        }
+    }
+    
     /// Initialize Digit Classifer instance
-    fileprivate init(interpreter: Interpreter, inputImageWidth: Int, inputImageHeight: Int) {
+    fileprivate init(interpreter: Interpreter, inputShape: TensorShape, outputShape: TensorShape) {
         self.interpreter = interpreter
-        self.inputImageWidth = inputImageWidth
-        self.inputImageHeight = inputImageHeight
+        self.inputShape = inputShape
+        self.outputShape = outputShape
+        self.loadLabels(fileInfo: Model.labelsInfo)
     }
 
     static func newInstance(completion: @escaping ((Result<ImageClassifier>) -> ())) {
@@ -64,12 +78,12 @@ class ImageClassifier {
         DispatchQueue.global(qos: .background).async {
             // Construct the path to the model file.
             guard let modelPath = Bundle.main.path(
-                forResource: Constant.modelFilename,
-                ofType: Constant.modelFileExtension
+                forResource: Model.modelInfo.name,
+                ofType: Model.modelInfo.extension
             ) else {
-                print("Failed to load the model file with name: \(Constant.modelFilename).")
+                print("Failed to load the model file with name: \(Model.modelInfo.name).")
                 DispatchQueue.main.async {
-                    completion(.error(InitializationError.invalidModel("\(Constant.modelFilename).\(Constant.modelFileExtension)")))
+                    completion(.error(InitializationError.invalidModel("\(Model.modelInfo.name).\(Model.modelInfo.extension)")))
                 }
                 return
             }
@@ -79,21 +93,20 @@ class ImageClassifier {
             do {
                 // Create the `Interpreter`.
                 let interpreter = try Interpreter(modelPath: modelPath, options: options)
-
                 // Allocate memory for the model's input `Tensor`s.
                 try interpreter.allocateTensors()
-
-                // Read TF Lite model input dimension
+                
+                // Read TF Lite model dimensions
                 let inputShape = try interpreter.input(at: 0).shape
-                let inputImageWidth = inputShape.dimensions[1]
-                let inputImageHeight = inputShape.dimensions[2]
-
-                // Create DigitClassifier instance and return
+                let outputShape = try interpreter.output(at: 0).shape
+                
+                // Create ImageClassifier instance and return
                 let classifier = ImageClassifier(
                     interpreter: interpreter,
-                    inputImageWidth: inputImageWidth,
-                    inputImageHeight: inputImageHeight
+                    inputShape: inputShape,
+                    outputShape: outputShape
                 )
+                
                 DispatchQueue.main.async {
                     completion(.success(classifier))
                 }
@@ -111,24 +124,27 @@ class ImageClassifier {
         DispatchQueue.global(qos: .background).async {
             let outputTensor: Tensor
             do {
-                // Preprocessing: Convert the input UIImage to (28 x 28) grayscale image to feed to TF Lite model.
-                guard let rgbData = image.scaledData(with: CGSize(width: self.inputImageWidth, height: self.inputImageHeight))
-                else {
-                DispatchQueue.main.async {
-                    completion(.error(ClassificationError.invalidImage))
-                }
-                print("Failed to convert the image buffer to RGB data.")
-                return
+                let inputTensor = try self.interpreter.input(at: 0)
+                
+                // Preprocessing: Convert the input UIImage to the model input image dimensions to feed the TF Lite model.
+                guard let rgbData = image.scaledData(
+                    inputShape: self.inputShape,
+                    isModelQuantized: inputTensor.dataType == .uInt8
+                ) else {
+                    DispatchQueue.main.async {
+                        completion(.error(ClassificationError.invalidImage))
+                    }
+                    print("Failed to convert the image buffer to RGB data.")
+                    return
                 }
 
                 // Copy the RGB data to the input `Tensor`.
                 try self.interpreter.copy(rgbData, toInputAt: 0)
-
                 // Run inference by invoking the `Interpreter`.
                 try self.interpreter.invoke()
-
                 // Get the output `Tensor` to process the inference results.
                 outputTensor = try self.interpreter.output(at: 0)
+                
             } catch let error {
                 print("Failed to invoke the interpreter with error: \(error.localizedDescription)")
                 DispatchQueue.main.async {
@@ -136,16 +152,58 @@ class ImageClassifier {
                 }
                 return
             }
-
-            // Postprocessing: Find the label with highest confidence and return as human readable text.
-            let results = outputTensor.data.toArray(type: Float32.self)
-            let maxConfidence = results.max() ?? -1
-            let maxIndex = results.firstIndex(of: maxConfidence) ?? -1
-            let humanReadableResult = "Predicted: \(maxIndex)\nConfidence: \(maxConfidence)"
+            
+            let results: [Float]
+            switch outputTensor.dataType {
+                case .uInt8:
+                    guard let quantization = outputTensor.quantizationParameters
+                    else {
+                        print("No results returned because the quantization values for the output tensor are nil.")
+                        return
+                    }
+                    
+                    let quantizedResults = [UInt8](outputTensor.data)
+                    results = quantizedResults.map {
+                        quantization.scale * Float(Int($0) - quantization.zeroPoint)
+                    }
+                case .float32:
+                    results = outputTensor.data.toArray(type: Float32.self)
+                    print("output type jeje: \(outputTensor.dataType)")
+                default:
+                    print("Output tensor data type \(outputTensor.dataType) is unsupported for this example app.")
+                    return
+            }
+            
+            if (self.resultsToDisplay == -1){
+                self.resultsToDisplay = self.outputShape.dimensions[1]
+                print("results to display: \(self.resultsToDisplay)")
+            }
+            
+            // Create a zipped array of tuples [(labelIndex: Int, confidence: Float)].
+            let zippedResults = zip(self.labels.indices, results)
+            // Sort the zipped results by confidence value in descending order.
+            let sortedResults = zippedResults.sorted { $0.1 > $1.1 }.prefix(self.resultsToDisplay)
+            // Return the `Inference` results.
+            let inferences =  sortedResults.map { result in Inference(confidence: result.1, label: self.labels[result.0]) }
+            
+            print("inferences = \(inferences)")
+            
+            var str_inferences = ""
+            var first = true
+            for inference in inferences {
+                if (first){
+                    str_inferences += "\(inference.label): \(inference.confidence.truncate(places: 3))%"
+                    first = false
+                } else {
+                    str_inferences += "\n\(inference.label): \(inference.confidence.truncate(places: 3))%"
+                }
+            }
+            
+            print("str_inferences = \(str_inferences)")
 
             // Return the classification result
             DispatchQueue.main.async {
-                completion(.success(humanReadableResult))
+                completion(.success(str_inferences))
             }
         }
     }
@@ -157,16 +215,16 @@ class ImageClassifier {
 // MARK: - Error enums
 /// Define errors that could happen in the initialization of this class
 enum InitializationError: Error {
-  // Invalid TF Lite model
-  case invalidModel(String)
-  // TF Lite Internal Error when initializing
-  case internalError(Error)
+    // Invalid TF Lite model
+    case invalidModel(String)
+    // TF Lite Internal Error when initializing
+    case internalError(Error)
 }
 
 /// Define errors that could happen in when doing image clasification
 enum ClassificationError: Error {
-  // Invalid input image
-  case invalidImage
-  // TF Lite Internal Error when initializing
-  case internalError(Error)
+    // Invalid input image
+    case invalidImage
+    // TF Lite Internal Error when initializing
+    case internalError(Error)
 }

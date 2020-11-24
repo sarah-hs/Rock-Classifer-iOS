@@ -27,6 +27,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        targetImage = imageView_rock.image
+        
         // Setup image picker.
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
@@ -77,9 +79,9 @@ class ViewController: UIViewController {
             // Show the classification result on screen.
             switch result {
                 case let .success(classificationResult):
-                self.label_results.text = classificationResult
+                    self.label_results.text = classificationResult
                 case .error(_):
-                self.label_results.text = "Failed to classify drawing."
+                    self.label_results.text = "Failed to classify drawing."
             }
         }
     }
