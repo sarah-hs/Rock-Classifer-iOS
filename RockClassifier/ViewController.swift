@@ -13,21 +13,23 @@ class ViewController: UIViewController {
     // MARK: Storyboards Connections
     @IBOutlet weak var button_camera: UIButton!
     //@IBOutlet weak var button_library: UIButton!
-    @IBOutlet weak var imageView_rock: UIImageView!
-    @IBOutlet weak var segmentedControl_features: UISegmentedControl!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var button_classify: UIButton!
     @IBOutlet weak var label_results: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     // MARK: Constants
     // MARK: Instance Variables
     private var classifier: ImageClassifier?
     private var imagePicker = UIImagePickerController()
     private var targetImage: UIImage?
+    private var extractedImage: UIImage?
+    private var averageImage: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        targetImage = imageView_rock.image
+        targetImage = imageView.image
         
         // Setup image picker.
         imagePicker.delegate = self
@@ -64,15 +66,33 @@ class ViewController: UIViewController {
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true)
     }
+    
+    /// Handle tapping on different display mode: Original Image, Color extracted Image, and average image color
+    @IBAction func onSegmentChanged(_ sender: Any) {
+        switch segmentedControl.selectedSegmentIndex {
+            case 0:
+                // Mode 0: Show input image
+                imageView.image = self.targetImage
+            case 1:
+                // Mode 1: Show visualization of main colors result.
+                imageView.image = self.extractedImage
+            case 2:
+                // Mode 2: Show visualization of average color result.
+                imageView.image = self.averageImage
+            default:
+                break
+        }
+    }
 
     @IBAction func classify(_ sender: Any) {
         label_results.text = "Classifying..."
         guard let classifier = self.classifier else { return }
-        
         guard targetImage != nil else {
               label_results.text = "Invalid image."
               return
         }
+        self.extractedImage = self.targetImage?.getMainColors(size: imageView.frame.size)
+        self.averageImage = self.targetImage?.getAverageColor(size: imageView.frame.size)
 
         // Run Image classifier.
         classifier.classify(image: targetImage!) { result in
@@ -85,22 +105,21 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    // Clear drawing canvas and result text when tapping Clear button.
-    func clearResults() {
-        label_results.text = "Tap classify to get results."
-    }
-
 }
+
 
 
 // MARK: - UIImagePickerControllerDelegate
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let pickedImage = info[.originalImage] as? UIImage {
-            clearResults()
-            targetImage = pickedImage
-            imageView_rock.image = targetImage
+            self.label_results.text = "Loading image..."
+            self.targetImage = pickedImage
+            self.extractedImage = nil
+            self.averageImage = nil
+            imageView.image = targetImage
+            segmentedControl.selectedSegmentIndex = 0;
+            self.label_results.text = "Tap classify to get results"
         }
         dismiss(animated: true)
     }

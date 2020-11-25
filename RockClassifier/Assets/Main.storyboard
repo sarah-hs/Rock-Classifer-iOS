@@ -55,13 +55,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZ8-5h-dnd" userLabel="View Image Features">
                                 <rect key="frame" x="0.0" y="465" width="414" height="40"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OIt-rQ-Hz3" userLabel="Segmented Control Image Features">
-                                        <rect key="frame" x="141" y="5" width="131" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OIt-rQ-Hz3" userLabel="Segmented Control Image Features">
+                                        <rect key="frame" x="58" y="5" width="296" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <segments>
-                                            <segment title="First"/>
-                                            <segment title="Second"/>
+                                            <segment title="Original"/>
+                                            <segment title="Extracted"/>
+                                            <segment title="Average"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="onSegmentChanged:" destination="rgK-xy-gws" eventType="valueChanged" id="bj2-Ih-Svz"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -97,7 +101,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Kl-T7-PEp" userLabel="View Results">
                                 <rect key="frame" x="207" y="505" width="207" height="231"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select an image to classify." lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QWz-Ge-8tw" userLabel="Label Results">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select an image to classify" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QWz-Ge-8tw" userLabel="Label Results">
                                         <rect key="frame" x="0.0" y="0.0" width="198" height="228"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -137,9 +141,9 @@
                     <connections>
                         <outlet property="button_camera" destination="ll1-aO-h99" id="Uek-R5-S2o"/>
                         <outlet property="button_classify" destination="qYI-9H-2I6" id="v9C-EO-KQm"/>
-                        <outlet property="imageView_rock" destination="GO1-CU-e0r" id="uuC-TW-ey8"/>
+                        <outlet property="imageView" destination="GO1-CU-e0r" id="FPn-6I-uGy"/>
                         <outlet property="label_results" destination="QWz-Ge-8tw" id="swj-ra-g6c"/>
-                        <outlet property="segmentedControl_features" destination="OIt-rQ-Hz3" id="D8R-qv-Efq"/>
+                        <outlet property="segmentedControl" destination="OIt-rQ-Hz3" id="MXi-Ja-6Dw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t3r-81-iWP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

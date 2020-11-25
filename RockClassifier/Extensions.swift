@@ -9,6 +9,7 @@ import CoreGraphics
 import Foundation
 import UIKit
 import TensorFlowLite
+import ColorThiefSwift
 
 
 
@@ -28,7 +29,7 @@ extension Float
 {
     func truncate(places : Int)-> String {
         let divisor = pow(10.0, Float(places))
-        let r = (self*divisor).rounded(.towardZero) / divisor
+        let r = (self*100*divisor).rounded(.towardZero) / divisor
         return "\(r)"
     }
 }
@@ -59,6 +60,51 @@ extension Data {
 
 // MARK: - UIImage
 extension UIImage {
+    
+    func getMainColors(size: CGSize) -> UIImage? {
+        guard let colors = ColorThief.getPalette(from: self, colorCount: 10, quality: 1, ignoreWhite: true) else {
+            return nil
+        }
+//        guard let dominantColor = ColorThief.getColor(from: self) else {
+//            return nil
+//        }
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        var index = 0
+        let colorsToDisplay = colors.count
+        
+//        let rect = CGRect(x: size.width/CGFloat(colors.count+1)*CGFloat(index), y: 0, width: size.width/CGFloat(colors.count+1), height: size.height)
+//        dominantColor.makeUIColor().setFill()
+//        UIRectFill(rect)
+//        index += 1
+        
+        for color in colors {
+            let rect = CGRect(x: size.width/CGFloat(colorsToDisplay)*CGFloat(index), y: 0,
+                              width: size.width/CGFloat(colorsToDisplay), height: size.height)
+            color.makeUIColor().setFill()
+            UIRectFill(rect)
+            index += 1
+        }
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    func getAverageColor(size: CGSize) -> UIImage? {
+        guard let dominantColor = ColorThief.getColor(from: self) else {
+            return nil
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        dominantColor.makeUIColor().setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        UIGraphicsEndImageContext()
+        return image
+    }
 
     /// Returns the data representation of the image after scaling to the given `size` and converting to grayscale.
     /// - Parameters

@@ -52,6 +52,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		260E7932256D909200059249 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				26EE0A88256C4FB9003367C8 /* rock_labels.txt */,
+				26EE0A89256C4FB9003367C8 /* rock_model.tflite */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		262A9C0B256C114200EFB9DF = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +82,7 @@
 		262A9C16256C114200EFB9DF /* RockClassifier */ = {
 			isa = PBXGroup;
 			children = (
+				260E7932256D909200059249 /* Models */,
 				26B86135256C1518003EBC61 /* Assets */,
 				2663409E256C1D4700AB2E59 /* ImageClassifier.swift */,
 				262A9C17256C114300EFB9DF /* AppDelegate.swift */,
@@ -86,8 +96,6 @@
 		26B86135256C1518003EBC61 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				26EE0A88256C4FB9003367C8 /* rock_labels.txt */,
-				26EE0A89256C4FB9003367C8 /* rock_model.tflite */,
 				26B86129256C12FF003EBC61 /* Main.storyboard */,
 				265BA2F5256C12A10083EB39 /* LaunchScreen.storyboard */,
 				266340B0256C22AA00AB2E59 /* Granite.png */,
@@ -366,7 +374,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8PRU62NKG9;
 				ENABLE_PREVIEWS = NO;
 				INFOPLIST_FILE = RockClassifier/Assets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -389,7 +397,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8PRU62NKG9;
 				ENABLE_PREVIEWS = NO;
 				INFOPLIST_FILE = RockClassifier/Assets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
