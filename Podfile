@@ -7,5 +7,5 @@ target 'RockClassifier' do
 
   # Pods for RockClassifier
    pod 'TensorFlowLiteSwift'
-   pod 'ColorThiefSwift', '>= 0.4.1'
+  # pod 'DominantColor', '>= 0.2.0'
 end

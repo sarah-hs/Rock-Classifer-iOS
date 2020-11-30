@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,8 @@
 		26B8612D256C131D003EBC61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B8612C256C131D003EBC61 /* ViewController.swift */; };
 		26EE0A8A256C4FB9003367C8 /* rock_labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26EE0A88256C4FB9003367C8 /* rock_labels.txt */; };
 		26EE0A8B256C4FB9003367C8 /* rock_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 26EE0A89256C4FB9003367C8 /* rock_model.tflite */; };
+		26F360E8256EAA8D00A942DE /* DominantColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F360E0256EAA8D00A942DE /* DominantColors.swift */; };
+		26F360E9256EAA8D00A942DE /* KMeans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F360E1256EAA8D00A942DE /* KMeans.swift */; };
 		9A9F9FA5B7A04B7AFB616B2B /* Pods_RockClassifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5736B65BC46FE3E07D65F73A /* Pods_RockClassifier.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 		26B8612C256C131D003EBC61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		26EE0A88256C4FB9003367C8 /* rock_labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock_labels.txt; sourceTree = "<group>"; };
 		26EE0A89256C4FB9003367C8 /* rock_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = rock_model.tflite; sourceTree = "<group>"; };
+		26F360E0256EAA8D00A942DE /* DominantColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominantColors.swift; sourceTree = "<group>"; };
+		26F360E1256EAA8D00A942DE /* KMeans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMeans.swift; sourceTree = "<group>"; };
 		5736B65BC46FE3E07D65F73A /* Pods_RockClassifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RockClassifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AFE697CC7C6BBD7A881A7E /* Pods-RockClassifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RockClassifier.release.xcconfig"; path = "Target Support Files/Pods-RockClassifier/Pods-RockClassifier.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,8 +86,10 @@
 		262A9C16256C114200EFB9DF /* RockClassifier */ = {
 			isa = PBXGroup;
 			children = (
-				260E7932256D909200059249 /* Models */,
 				26B86135256C1518003EBC61 /* Assets */,
+				260E7932256D909200059249 /* Models */,
+				26F360E0256EAA8D00A942DE /* DominantColors.swift */,
+				26F360E1256EAA8D00A942DE /* KMeans.swift */,
 				2663409E256C1D4700AB2E59 /* ImageClassifier.swift */,
 				262A9C17256C114300EFB9DF /* AppDelegate.swift */,
 				26B8612C256C131D003EBC61 /* ViewController.swift */,
@@ -133,7 +139,6 @@
 				262A9C10256C114200EFB9DF /* Sources */,
 				262A9C11256C114200EFB9DF /* Frameworks */,
 				262A9C12256C114200EFB9DF /* Resources */,
-				B7EDD9A48EFDD0A4A6D753B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,23 +198,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B7EDD9A48EFDD0A4A6D753B8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RockClassifier/Pods-RockClassifier-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RockClassifier/Pods-RockClassifier-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RockClassifier/Pods-RockClassifier-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D48C8AD88CA6117C9728FB47 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,7 +230,9 @@
 				266340A2256C1D7600AB2E59 /* Extensions.swift in Sources */,
 				2663409F256C1D4700AB2E59 /* ImageClassifier.swift in Sources */,
 				26B8612D256C131D003EBC61 /* ViewController.swift in Sources */,
+				26F360E8256EAA8D00A942DE /* DominantColors.swift in Sources */,
 				262A9C18256C114300EFB9DF /* AppDelegate.swift in Sources */,
+				26F360E9256EAA8D00A942DE /* KMeans.swift in Sources */,
 				2663409B256C1BBB00AB2E59 /* Designs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

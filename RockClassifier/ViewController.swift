@@ -30,6 +30,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         targetImage = imageView.image
+        self.extractedImage = targetImage?.getMainColors(size: imageView.frame.size)
+        self.averageImage = targetImage?.getAverageColor(size: imageView.frame.size)
         
         // Setup image picker.
         imagePicker.delegate = self
@@ -115,12 +117,12 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         if let pickedImage = info[.originalImage] as? UIImage {
             self.label_results.text = "Loading image..."
             self.targetImage = pickedImage
-            self.extractedImage = nil
-            self.averageImage = nil
             imageView.image = targetImage
             segmentedControl.selectedSegmentIndex = 0;
             self.label_results.text = "Tap classify to get results"
         }
         dismiss(animated: true)
+        self.extractedImage = targetImage?.getMainColors(size: imageView.frame.size)
+        self.averageImage = targetImage?.getAverageColor(size: imageView.frame.size)
     }
 }
