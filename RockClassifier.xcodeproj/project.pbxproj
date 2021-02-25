@@ -11,13 +11,15 @@
 		262A9C1C256C114300EFB9DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 262A9C1B256C114300EFB9DF /* Assets.xcassets */; };
 		265BA2F6256C12A10083EB39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265BA2F5256C12A10083EB39 /* LaunchScreen.storyboard */; };
 		2663409B256C1BBB00AB2E59 /* Designs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663409A256C1BBB00AB2E59 /* Designs.swift */; };
-		2663409F256C1D4700AB2E59 /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663409E256C1D4700AB2E59 /* ImageClassifier.swift */; };
 		266340A2256C1D7600AB2E59 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266340A1256C1D7600AB2E59 /* Extensions.swift */; };
 		266340B1256C22AA00AB2E59 /* Granite.png in Resources */ = {isa = PBXBuildFile; fileRef = 266340B0256C22AA00AB2E59 /* Granite.png */; };
+		2675983D25E7F49F008BFA1E /* KNNClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2675983C25E7F49F008BFA1E /* KNNClassifier.swift */; };
+		2675984525E7F589008BFA1E /* colors_model2.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 2675984125E7F588008BFA1E /* colors_model2.tflite */; };
+		2675984625E7F589008BFA1E /* colors_labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2675984225E7F588008BFA1E /* colors_labels.txt */; };
+		2675984725E7F589008BFA1E /* scales.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2675984325E7F588008BFA1E /* scales.txt */; };
+		2675984825E7F589008BFA1E /* mins.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2675984425E7F589008BFA1E /* mins.txt */; };
 		26B8612A256C12FF003EBC61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26B86129256C12FF003EBC61 /* Main.storyboard */; };
 		26B8612D256C131D003EBC61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B8612C256C131D003EBC61 /* ViewController.swift */; };
-		26EE0A8A256C4FB9003367C8 /* rock_labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26EE0A88256C4FB9003367C8 /* rock_labels.txt */; };
-		26EE0A8B256C4FB9003367C8 /* rock_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 26EE0A89256C4FB9003367C8 /* rock_model.tflite */; };
 		26F360E8256EAA8D00A942DE /* DominantColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F360E0256EAA8D00A942DE /* DominantColors.swift */; };
 		26F360E9256EAA8D00A942DE /* KMeans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F360E1256EAA8D00A942DE /* KMeans.swift */; };
 		9A9F9FA5B7A04B7AFB616B2B /* Pods_RockClassifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5736B65BC46FE3E07D65F73A /* Pods_RockClassifier.framework */; };
@@ -31,13 +33,15 @@
 		262A9C20256C114300EFB9DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		265BA2F5256C12A10083EB39 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2663409A256C1BBB00AB2E59 /* Designs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designs.swift; sourceTree = "<group>"; };
-		2663409E256C1D4700AB2E59 /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
 		266340A1256C1D7600AB2E59 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		266340B0256C22AA00AB2E59 /* Granite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Granite.png; sourceTree = "<group>"; };
+		2675983C25E7F49F008BFA1E /* KNNClassifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KNNClassifier.swift; sourceTree = "<group>"; };
+		2675984125E7F588008BFA1E /* colors_model2.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = colors_model2.tflite; sourceTree = "<group>"; };
+		2675984225E7F588008BFA1E /* colors_labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = colors_labels.txt; sourceTree = "<group>"; };
+		2675984325E7F588008BFA1E /* scales.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scales.txt; sourceTree = "<group>"; };
+		2675984425E7F589008BFA1E /* mins.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mins.txt; sourceTree = "<group>"; };
 		26B86129256C12FF003EBC61 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = RockClassifier/Assets/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		26B8612C256C131D003EBC61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		26EE0A88256C4FB9003367C8 /* rock_labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock_labels.txt; sourceTree = "<group>"; };
-		26EE0A89256C4FB9003367C8 /* rock_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = rock_model.tflite; sourceTree = "<group>"; };
 		26F360E0256EAA8D00A942DE /* DominantColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominantColors.swift; sourceTree = "<group>"; };
 		26F360E1256EAA8D00A942DE /* KMeans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMeans.swift; sourceTree = "<group>"; };
 		5736B65BC46FE3E07D65F73A /* Pods_RockClassifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RockClassifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,8 +63,10 @@
 		260E7932256D909200059249 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				26EE0A88256C4FB9003367C8 /* rock_labels.txt */,
-				26EE0A89256C4FB9003367C8 /* rock_model.tflite */,
+				2675984225E7F588008BFA1E /* colors_labels.txt */,
+				2675984125E7F588008BFA1E /* colors_model2.tflite */,
+				2675984425E7F589008BFA1E /* mins.txt */,
+				2675984325E7F588008BFA1E /* scales.txt */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -89,8 +95,8 @@
 				26B86135256C1518003EBC61 /* Assets */,
 				260E7932256D909200059249 /* Models */,
 				26F360E0256EAA8D00A942DE /* DominantColors.swift */,
+				2675983C25E7F49F008BFA1E /* KNNClassifier.swift */,
 				26F360E1256EAA8D00A942DE /* KMeans.swift */,
-				2663409E256C1D4700AB2E59 /* ImageClassifier.swift */,
 				262A9C17256C114300EFB9DF /* AppDelegate.swift */,
 				26B8612C256C131D003EBC61 /* ViewController.swift */,
 				2663409A256C1BBB00AB2E59 /* Designs.swift */,
@@ -186,12 +192,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26EE0A8B256C4FB9003367C8 /* rock_model.tflite in Resources */,
 				265BA2F6256C12A10083EB39 /* LaunchScreen.storyboard in Resources */,
 				262A9C1C256C114300EFB9DF /* Assets.xcassets in Resources */,
+				2675984625E7F589008BFA1E /* colors_labels.txt in Resources */,
 				26B8612A256C12FF003EBC61 /* Main.storyboard in Resources */,
-				26EE0A8A256C4FB9003367C8 /* rock_labels.txt in Resources */,
+				2675984725E7F589008BFA1E /* scales.txt in Resources */,
+				2675984525E7F589008BFA1E /* colors_model2.tflite in Resources */,
 				266340B1256C22AA00AB2E59 /* Granite.png in Resources */,
+				2675984825E7F589008BFA1E /* mins.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				266340A2256C1D7600AB2E59 /* Extensions.swift in Sources */,
-				2663409F256C1D4700AB2E59 /* ImageClassifier.swift in Sources */,
+				2675983D25E7F49F008BFA1E /* KNNClassifier.swift in Sources */,
 				26B8612D256C131D003EBC61 /* ViewController.swift in Sources */,
 				26F360E8256EAA8D00A942DE /* DominantColors.swift in Sources */,
 				262A9C18256C114300EFB9DF /* AppDelegate.swift in Sources */,

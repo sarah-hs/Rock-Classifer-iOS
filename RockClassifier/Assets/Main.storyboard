@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rgK-xy-gws">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rgK-xy-gws">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -27,7 +27,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfJ-OR-fMY" userLabel="View Photo Buttons">
                                 <rect key="frame" x="0.0" y="414" width="414" height="51"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ll1-aO-h99">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ll1-aO-h99" userLabel="Button Camera">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="51"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                         <state key="normal">
@@ -35,10 +35,10 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23" scale="large"/>
                                         </state>
                                         <connections>
-                                            <action selector="onTapOpenCamera:" destination="rgK-xy-gws" eventType="touchUpInside" id="c45-gL-7Ir"/>
+                                            <action selector="onTapOpenCamera:" destination="rgK-xy-gws" eventType="touchUpInside" id="bvW-2y-rn4"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Doe-yE-qp6">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Doe-yE-qp6" userLabel="Button PhotoLibrary">
                                         <rect key="frame" x="207" y="0.0" width="207" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                                         <state key="normal">
@@ -46,7 +46,7 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23" scale="large"/>
                                         </state>
                                         <connections>
-                                            <action selector="onTapPhotoLibrary:" destination="rgK-xy-gws" eventType="touchUpInside" id="2wf-U6-E6L"/>
+                                            <action selector="onTapPhotoLibrary:" destination="rgK-xy-gws" eventType="touchUpInside" id="78C-FJ-Jx9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -64,7 +64,7 @@
                                             <segment title="Average"/>
                                         </segments>
                                         <connections>
-                                            <action selector="onSegmentChanged:" destination="rgK-xy-gws" eventType="valueChanged" id="bj2-Ih-Svz"/>
+                                            <action selector="onSegmentChanged:" destination="rgK-xy-gws" eventType="valueChanged" id="sjH-lv-eGY"/>
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
@@ -88,7 +88,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="classify:" destination="rgK-xy-gws" eventType="touchUpInside" id="oAu-PZ-8wT"/>
+                                            <action selector="classify:" destination="rgK-xy-gws" eventType="touchUpInside" id="GGa-vS-r1V"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -139,11 +139,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="button_camera" destination="ll1-aO-h99" id="Uek-R5-S2o"/>
-                        <outlet property="button_classify" destination="qYI-9H-2I6" id="v9C-EO-KQm"/>
-                        <outlet property="imageView" destination="GO1-CU-e0r" id="FPn-6I-uGy"/>
-                        <outlet property="label_results" destination="QWz-Ge-8tw" id="swj-ra-g6c"/>
-                        <outlet property="segmentedControl" destination="OIt-rQ-Hz3" id="MXi-Ja-6Dw"/>
+                        <outlet property="button_camera" destination="ll1-aO-h99" id="vYb-x2-msQ"/>
+                        <outlet property="button_classify" destination="qYI-9H-2I6" id="Tmj-Os-acW"/>
+                        <outlet property="imageView" destination="GO1-CU-e0r" id="Orx-JV-GeK"/>
+                        <outlet property="label_results" destination="QWz-Ge-8tw" id="l0r-sW-fHn"/>
+                        <outlet property="segmentedControl" destination="OIt-rQ-Hz3" id="ng2-kE-Lbw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t3r-81-iWP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

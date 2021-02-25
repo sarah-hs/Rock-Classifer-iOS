@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     // MARK: Constants
     // MARK: Instance Variables
-    private var classifier: ImageClassifier?
+    private var classifier: KNNClassifier?
     private var imagePicker = UIImagePickerController()
     private var targetImage: UIImage?
     private var extractedImage: UIImage?
@@ -30,12 +30,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         targetImage = imageView.image
-        self.extractedImage = targetImage?.getMainColors(size: imageView.frame.size)
-        self.averageImage = targetImage?.getAverageColor(size: imageView.frame.size)
+        self.extractedImage = targetImage?.dominantColorsImage(size: imageView.frame.size)
+        self.averageImage = targetImage?.averageColorImage(size: imageView.frame.size)
         
         // Setup image picker.
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false
 
         // Enable camera option only if current device has camera.
         let isCameraAvailable = UIImagePickerController.isCameraDeviceAvailable(.front) || UIImagePickerController.isCameraDeviceAvailable(.rear)
@@ -43,7 +44,7 @@ class ViewController: UIViewController {
             button_camera.isEnabled = true
         }
         
-        ImageClassifier.newInstance { result in
+        KNNClassifier.newInstance { result in
             switch result {
             case let .success(classifier):
                 self.classifier = classifier
@@ -93,8 +94,6 @@ class ViewController: UIViewController {
               label_results.text = "Invalid image."
               return
         }
-        self.extractedImage = self.targetImage?.getMainColors(size: imageView.frame.size)
-        self.averageImage = self.targetImage?.getAverageColor(size: imageView.frame.size)
 
         // Run Image classifier.
         classifier.classify(image: targetImage!) { result in
@@ -103,7 +102,7 @@ class ViewController: UIViewController {
                 case let .success(classificationResult):
                     self.label_results.text = classificationResult
                 case .error(_):
-                    self.label_results.text = "Failed to classify drawing."
+                    self.label_results.text = "Failed to classify image."
             }
         }
     }
@@ -111,18 +110,37 @@ class ViewController: UIViewController {
 
 
 
+
 // MARK: - UIImagePickerControllerDelegate
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let pickedImage = info[.originalImage] as? UIImage {
-            self.label_results.text = "Loading image..."
+            print("\nLoading image...")
             self.targetImage = pickedImage
             imageView.image = targetImage
             segmentedControl.selectedSegmentIndex = 0;
             self.label_results.text = "Tap classify to get results"
         }
         dismiss(animated: true)
-        self.extractedImage = targetImage?.getMainColors(size: imageView.frame.size)
-        self.averageImage = targetImage?.getAverageColor(size: imageView.frame.size)
+        self.extractedImage = self.targetImage?.dominantColorsImage(size: imageView.frame.size)
+        self.averageImage = self.targetImage?.averageColorImage(size: imageView.frame.size)
     }
 }
+
+
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        print("\nLoading image...")
+//        if let pickedImage = info[.editedImage] as? UIImage {
+//            self.targetImage = pickedImage
+//        } else if let pickedImage2 = info[.originalImage] as? UIImage {
+//            self.targetImage = pickedImage2
+//        }
+//        imageView.image = targetImage
+//        segmentedControl.selectedSegmentIndex = 0;
+//        self.label_results.text = "Tap classify to get results"
+//
+//        picker.dismiss(animated: true,completion: nil)
+//
+//        self.averageImage = self.targetImage?.averageColorImage(size: imageView.frame.size)
+//        self.extractedImage = self.targetImage?.dominantColorsImage(size: imageView.frame.size)
+//    }
