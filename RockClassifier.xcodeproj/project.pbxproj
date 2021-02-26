@@ -13,8 +13,11 @@
 		2663409B256C1BBB00AB2E59 /* Designs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663409A256C1BBB00AB2E59 /* Designs.swift */; };
 		266340A2256C1D7600AB2E59 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266340A1256C1D7600AB2E59 /* Extensions.swift */; };
 		266340B1256C22AA00AB2E59 /* Granite.png in Resources */ = {isa = PBXBuildFile; fileRef = 266340B0256C22AA00AB2E59 /* Granite.png */; };
+		2663502D25E872CE00855849 /* Diorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 2663502B25E872CE00855849 /* Diorite.png */; };
+		2663502E25E872CE00855849 /* Gabbro.png in Resources */ = {isa = PBXBuildFile; fileRef = 2663502C25E872CE00855849 /* Gabbro.png */; };
+		2663503125E873C800855849 /* Granodiorite.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2663503025E873C800855849 /* Granodiorite.jpeg */; };
 		2675983D25E7F49F008BFA1E /* KNNClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2675983C25E7F49F008BFA1E /* KNNClassifier.swift */; };
-		2675984525E7F589008BFA1E /* colors_model2.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 2675984125E7F588008BFA1E /* colors_model2.tflite */; };
+		2675984525E7F589008BFA1E /* colors_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 2675984125E7F588008BFA1E /* colors_model.tflite */; };
 		2675984625E7F589008BFA1E /* colors_labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2675984225E7F588008BFA1E /* colors_labels.txt */; };
 		2675984725E7F589008BFA1E /* scales.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2675984325E7F588008BFA1E /* scales.txt */; };
 		2675984825E7F589008BFA1E /* mins.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2675984425E7F589008BFA1E /* mins.txt */; };
@@ -35,8 +38,11 @@
 		2663409A256C1BBB00AB2E59 /* Designs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designs.swift; sourceTree = "<group>"; };
 		266340A1256C1D7600AB2E59 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		266340B0256C22AA00AB2E59 /* Granite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Granite.png; sourceTree = "<group>"; };
+		2663502B25E872CE00855849 /* Diorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diorite.png; sourceTree = "<group>"; };
+		2663502C25E872CE00855849 /* Gabbro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gabbro.png; sourceTree = "<group>"; };
+		2663503025E873C800855849 /* Granodiorite.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Granodiorite.jpeg; sourceTree = "<group>"; };
 		2675983C25E7F49F008BFA1E /* KNNClassifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KNNClassifier.swift; sourceTree = "<group>"; };
-		2675984125E7F588008BFA1E /* colors_model2.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = colors_model2.tflite; sourceTree = "<group>"; };
+		2675984125E7F588008BFA1E /* colors_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = colors_model.tflite; sourceTree = "<group>"; };
 		2675984225E7F588008BFA1E /* colors_labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = colors_labels.txt; sourceTree = "<group>"; };
 		2675984325E7F588008BFA1E /* scales.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scales.txt; sourceTree = "<group>"; };
 		2675984425E7F589008BFA1E /* mins.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mins.txt; sourceTree = "<group>"; };
@@ -64,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				2675984225E7F588008BFA1E /* colors_labels.txt */,
-				2675984125E7F588008BFA1E /* colors_model2.tflite */,
+				2675984125E7F588008BFA1E /* colors_model.tflite */,
 				2675984425E7F589008BFA1E /* mins.txt */,
 				2675984325E7F588008BFA1E /* scales.txt */,
 			);
@@ -108,6 +114,9 @@
 		26B86135256C1518003EBC61 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2663503025E873C800855849 /* Granodiorite.jpeg */,
+				2663502B25E872CE00855849 /* Diorite.png */,
+				2663502C25E872CE00855849 /* Gabbro.png */,
 				26B86129256C12FF003EBC61 /* Main.storyboard */,
 				265BA2F5256C12A10083EB39 /* LaunchScreen.storyboard */,
 				266340B0256C22AA00AB2E59 /* Granite.png */,
@@ -192,12 +201,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2663503125E873C800855849 /* Granodiorite.jpeg in Resources */,
 				265BA2F6256C12A10083EB39 /* LaunchScreen.storyboard in Resources */,
 				262A9C1C256C114300EFB9DF /* Assets.xcassets in Resources */,
 				2675984625E7F589008BFA1E /* colors_labels.txt in Resources */,
+				2663502E25E872CE00855849 /* Gabbro.png in Resources */,
 				26B8612A256C12FF003EBC61 /* Main.storyboard in Resources */,
+				2663502D25E872CE00855849 /* Diorite.png in Resources */,
 				2675984725E7F589008BFA1E /* scales.txt in Resources */,
-				2675984525E7F589008BFA1E /* colors_model2.tflite in Resources */,
+				2675984525E7F589008BFA1E /* colors_model.tflite in Resources */,
 				266340B1256C22AA00AB2E59 /* Granite.png in Resources */,
 				2675984825E7F589008BFA1E /* mins.txt in Resources */,
 			);

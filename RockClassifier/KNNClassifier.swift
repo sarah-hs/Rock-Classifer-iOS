@@ -12,7 +12,7 @@ import TensorFlowLite
 
 // Information about the TF model.
 enum ColorsModel {
-    static let modelInfo: FileInfo = (name: "colors_model2", extension: "tflite")
+    static let modelInfo: FileInfo = (name: "colors_model", extension: "tflite")
     static let labelsInfo: FileInfo = (name: "colors_labels", extension: "txt")
     static let scalesInfo: FileInfo = (name: "scales", extension: "txt")
     static let minsInfo: FileInfo = (name: "mins", extension: "txt")

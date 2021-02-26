@@ -215,7 +215,6 @@ extension UIImage {
     }
     
     func averageColorImage(size: CGSize) -> UIImage? {
-        
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         self.averageColor!.setFill()

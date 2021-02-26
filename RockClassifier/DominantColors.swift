@@ -59,6 +59,7 @@ func dominantColorsInImage(
     for cluster in clusters {
         total += cluster.size
     }
+    print("Colors were extracted")
     return clusters.map {DominantColor( Color: $0.centroid, percentage: Double($0.size)/Double(total) )}
 }
 

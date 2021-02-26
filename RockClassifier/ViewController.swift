@@ -117,15 +117,39 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         if let pickedImage = info[.originalImage] as? UIImage {
             print("\nLoading image...")
             self.targetImage = pickedImage
-            imageView.image = targetImage
-            segmentedControl.selectedSegmentIndex = 0;
-            self.label_results.text = "Tap classify to get results"
         }
         dismiss(animated: true)
-        self.extractedImage = self.targetImage?.dominantColorsImage(size: imageView.frame.size)
-        self.averageImage = self.targetImage?.averageColorImage(size: imageView.frame.size)
+        self.imageView.image = targetImage
+        self.segmentedControl.selectedSegmentIndex = 0;
+        
+        self.averageImage = self.targetImage?.averageColorImage(size: self.imageView.frame.size)
+        self.extractedImage = self.targetImage?.dominantColorsImage(size: self.imageView.frame.size)
+        
+        
+        self.label_results.text = "Tap classify to get results"
+        //self.button_classify.isEnabled = false
+        //self.label_results.text = "Extracting dominant colors..."
+        //extraction {}
     }
+    
+//    func extraction( completion: @escaping(()->()) ){
+//        DispatchQueue.global(qos: .background).async { [self] in
+//            self.extractedImage = self.targetImage?.dominantColorsImage(size: self.imageView.frame.size)
+//            self.averageImage = self.targetImage?.averageColorImage(size: self.imageView.frame.size)
+//            self.button_classify.isEnabled = true
+//            self.label_results.text = "Tap classify to get results"
+//            print("done")
+//            DispatchQueue.main.async {
+//                completion()
+//            }
+//        }
+//    }
 }
+
+
+
+
+
 
 
 //    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
